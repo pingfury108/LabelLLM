@@ -89,7 +89,24 @@ Click on the image below to watch the video:
 </div>
 
 
-## Local Deployment
+## Deployment Options
+
+### Quick Deployment with Pre-built Images 🚀
+
+We provide pre-built Docker images on GitHub Container Registry for quick deployment:
+
+```bash
+# Use the production docker-compose with pre-built images
+docker compose -f docker-compose.prod.yaml up -d
+```
+
+**Available Images:**
+- Backend: `ghcr.io/pingfury108/labelllm/backend:latest`
+- Frontend: `ghcr.io/pingfury108/labelllm/frontend:latest`
+
+> See [Docker Deployment Guide](docs/docker-deployment.md) for detailed instructions.
+
+### Local Development with Source Build
 
 > Deployment Tutorial Video:  https://www.youtube.com/watch?v=KXofJzCOafk
 
