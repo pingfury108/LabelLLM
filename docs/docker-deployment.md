@@ -71,7 +71,11 @@ SECRET_KEY="?*hsbRq5c9gpjBp~:oHU+7s8,I.67ewohfsib1=17dw@.q9r4Iidop:Oi_5oIYgw"
 
 ### Frontend 配置
 
-前端镜像在构建时已包含必要的配置，如需自定义可通过环境变量或重新构建。
+前端镜像在构建时已包含必要的配置。构建参数：
+
+- `VITE_APP_VERSION`: 应用版本号（自动从 Git ref 获取）
+
+**注意**: 如果需要 Sentry 或其他敏感令牌，请使用 `frontend/Dockerfile.with-secrets` 和 Docker secrets 功能。
 
 ## 服务端口
 

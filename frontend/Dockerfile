@@ -1,18 +1,19 @@
-FROM node:18.20.4-alpine as builder
+FROM node:20.17.0-alpine AS builder
 
 WORKDIR /app
 
-ARG GL_TOKEN
+# Non-sensitive build arguments
 ARG VITE_APP_VERSION
-ARG SENTRY_AUTH_TOKEN_WEB
 
 # install pnpm
 RUN npm install -g pnpm
 
-COPY . .
+COPY package.json pnpm-lock.yaml* ./
 
 # install dependencies
-RUN pnpm install
+RUN pnpm install --frozen-lockfile
+
+COPY . .
 
 # build app
 RUN npm run build:js
