@@ -1,16 +1,18 @@
-FROM node:20.17.0-alpine AS builder
+FROM node:18.20.4-alpine as builder
 
 WORKDIR /app
 
-# Non-sensitive build arguments
+ARG GL_TOKEN
 ARG VITE_APP_VERSION
+ARG SENTRY_AUTH_TOKEN_WEB
 
-COPY package.json package-lock.json* ./
-
-# install dependencies
-RUN npm ci || npm install
+# install pnpm
+RUN npm install -g pnpm
 
 COPY . .
+
+# install dependencies
+RUN pnpm install
 
 # build app
 RUN npm run build:js
