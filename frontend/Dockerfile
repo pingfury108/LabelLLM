@@ -5,13 +5,10 @@ WORKDIR /app
 # Non-sensitive build arguments
 ARG VITE_APP_VERSION
 
-# install pnpm
-RUN npm install -g pnpm
-
-COPY package.json pnpm-lock.yaml* ./
+COPY package.json package-lock.json* ./
 
 # install dependencies
-RUN pnpm install --frozen-lockfile
+RUN npm ci || npm install
 
 COPY . .
 
