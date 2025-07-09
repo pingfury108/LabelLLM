@@ -12,7 +12,6 @@ import ErrorBoundary from '@/components/ErrorBoundary';
 import AppPanel from '@/components/AppPanel';
 
 import logo from '../assets/logo.svg';
-import { ReactComponent as Title } from '@/apps/supplier/assets/title.svg';
 import { FormattedMessage } from 'react-intl';
 import IconFont from '@/components/IconFont';
 import clsx from 'clsx';
@@ -67,7 +66,7 @@ export default () => {
       className="layout-wrapper"
       logo={logo}
       // @ts-ignore
-      title={<Title className="ml-2 mt-1" />}
+      title="萤港标注"
       pageTitleRender={() => ''}
       defaultCollapsed={true}
       breakpoint={false}
